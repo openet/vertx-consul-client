@@ -68,6 +68,10 @@ public class ConsulContext {
     return ConsulCluster.getDefaultAgent().getName();
   }
 
+  public String nodeAddress() {
+    return ConsulCluster.getDefaultAgent().getHost();
+  }
+
   public String consulVersion() {
     return ConsulCluster.getDefaultAgent().getConsulVersion();
   }
