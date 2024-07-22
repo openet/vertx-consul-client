@@ -20,7 +20,10 @@
     <protoc.version>3.21.8</protoc.version>
 
     <jar.manifest>${project.basedir}/src/main/resources/META-INF/MANIFEST.MF</jar.manifest>
-    <openet.ryuk.image>dependencies.openet.com:5000/testcontainersofficial/ryuk:0.3.3</openet.ryuk.image>	    
+    <dependencies.openet.docker.registry>dependencies.openet.com:5000</dependencies.openet.docker.registry>
+    <testcontainers.ryuk.version>0.3.4</testcontainers.ryuk.version>
+    <testcontainers.ryuk.image>testcontainers/ryuk:${testcontainers.ryuk.version}</testcontainers.ryuk.image>
+    <openet.ryuk.image>${dependencies.openet.docker.registry}/${testcontainers.ryuk.image}</openet.ryuk.image>	    
     <ryuk.container.timeout>10</ryuk.container.timeout>
 </properties>
 	
