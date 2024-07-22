@@ -21,7 +21,9 @@
 
     <jar.manifest>${project.basedir}/src/main/resources/META-INF/MANIFEST.MF</jar.manifest>
     <openet.ryuk.image>dependencies.openet.com:5000/testcontainersofficial/ryuk:0.3.3</openet.ryuk.image>	    
-  </properties>
+    <ryuk.container.timeout>10</ryuk.container.timeout>
+</properties>
+	
 
   <dependencyManagement>
     <dependencies>
