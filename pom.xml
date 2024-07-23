@@ -20,6 +20,11 @@
     <protoc.version>3.21.8</protoc.version>
 
     <jar.manifest>${project.basedir}/src/main/resources/META-INF/MANIFEST.MF</jar.manifest>
+
+    <dependencies.openet.docker.registry>dependencies.openet.com:5000</dependencies.openet.docker.registry>
+    <testcontainers.ryuk.version>0.8.1</testcontainers.ryuk.version>
+    <testcontainers.ryuk.image>testcontainers/ryuk:${testcontainers.ryuk.version}</testcontainers.ryuk.image>
+    <openet.ryuk.image>${dependencies.openet.docker.registry}/${testcontainers.ryuk.image}</openet.ryuk.image>
   </properties>
 
   <dependencyManagement>
@@ -96,6 +101,12 @@
   </dependencies>
 
   <build>
+    <testResources>
+      <testResource>
+        <directory>src/test/resources</directory>
+        <filtering>true</filtering>
+      </testResource>
+    </testResources>
     <extensions>
       <extension>
         <groupId>kr.motd.maven</groupId>
