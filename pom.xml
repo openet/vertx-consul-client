@@ -26,6 +26,7 @@
     <testcontainers.ryuk.image>testcontainers/ryuk:${testcontainers.ryuk.version}</testcontainers.ryuk.image>
     <openet.ryuk.image>${dependencies.openet.docker.registry}/${testcontainers.ryuk.image}</openet.ryuk.image>
     <openet.consul.image.registry>${dependencies.openet.docker.registry}/hashicorp/consul</openet.consul.image.registry>
+    <openet.vertx4.image.registry>${dependencies.openet.docker.registry}/vertx/vertx4</openet.vertx4.image.registry>
   </properties>
 
   <dependencyManagement>
@@ -123,6 +124,7 @@
         <configuration>
           <systemPropertyVariables>
             <openet.consul.image.registry>${openet.consul.image.registry}</openet.consul.image.registry>
+            <openet.vertx4.image.registry>${openet.vertx4.image.registry}</openet.vertx4.image.registry>
           </systemPropertyVariables>
         </configuration>
       </plugin>

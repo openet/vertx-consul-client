@@ -113,7 +113,7 @@ public class Transactions extends ConsulTestBase {
   @Test
   public void serviceGet(TestContext tc) {
     ServiceOptions serviceOptions1 = createServiceOptions("id1", SERVICE_NAME, "10.10.10.11", 8080);
-    ServiceOptions serviceOptions2 = createServiceOptions("id2", SERVICE_NAME, "10.10.10.12", 8081);
+    ServiceOptions serviceOptions2 = createServiceOptions("id2", SERVICE_NAME, "10.10.10.11", 8081);
     TxnRequest getRequest = new TxnRequest()
       .addOperation(new TxnServiceOperation().setNode(getNodeName()).setServiceOptions(serviceOptions1).setType(TxnServiceVerb.GET))
       .addOperation(new TxnServiceOperation().setNode(getNodeName()).setServiceOptions(serviceOptions2).setType(TxnServiceVerb.GET));
@@ -235,9 +235,9 @@ public class Transactions extends ConsulTestBase {
 
   @Test
   public void serviceMultiOperationError(TestContext tc) {
-    ServiceOptions serviceOptions1 = createServiceOptions("id1", SERVICE_NAME, "10.10.11.10", 8080);
+    ServiceOptions serviceOptions1 = createServiceOptions("id1", SERVICE_NAME, "10.10.12.10", 8080);
     ServiceOptions serviceOptions2 = createServiceOptions("id2", SERVICE_NAME, "10.10.12.10", 8081);
-    ServiceOptions serviceOptions3 = createServiceOptions("id3", "", "10.10.13.10", 8082);
+    ServiceOptions serviceOptions3 = createServiceOptions("id3", "", "10.10.12.10", 8082);
     writeClient.registerService(serviceOptions1, tc.asyncAssertSuccess(resp1 -> {
       writeClient.registerService(serviceOptions2, tc.asyncAssertSuccess(resp2 -> {
         getRegistrations(tc, SERVICE_NAME, registrations1 -> {
