@@ -24,6 +24,8 @@ public class ConsulInstance extends ConsulContainer {
 
   private JsonObject configuration = new JsonObject();
 
+  private static final String DEFAULT_REGISTRY = System.getProperty("consul.image.registry");
+
   private ConsulInstance(String image, String version, ConsulDatacenter dc) {
     super(image + ":" + version);
     this.dc = dc;
@@ -147,7 +149,7 @@ public class ConsulInstance extends ConsulContainer {
     }
 
     public Builder consulImage(String image) {
-      this.image = Objects.requireNonNull(image);
+      this.image = DEFAULT_REGISTRY + "/" + Objects.requireNonNull(image) + ":" + DEFAULT_VERSION;
       return this;
     }
 
@@ -158,7 +160,7 @@ public class ConsulInstance extends ConsulContainer {
 
     public Builder datacenter(ConsulDatacenter datacenter) {
       this.datacenter = Objects.requireNonNull(datacenter);
-      return this;
+      return this;	
     }
 
     public Builder nodeName(String name) {

@@ -19,6 +19,7 @@
     <grpc.version>1.50.2</grpc.version>
     <protoc.version>3.21.8</protoc.version>
 
+    <consul.image.registry>dependencies.openet.com:5000/hashicorp</consul.image.registry>
     <jar.manifest>${project.basedir}/src/main/resources/META-INF/MANIFEST.MF</jar.manifest>
     <dependencies.openet.docker.registry>dependencies.openet.com:5000</dependencies.openet.docker.registry>
     <testcontainers.ryuk.version>0.3.4</testcontainers.ryuk.version>
